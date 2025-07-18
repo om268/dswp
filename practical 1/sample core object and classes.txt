@@ -1,0 +1,25 @@
+# Class and Object Example in Python
+
+class Student:
+    # Constructor
+    def __init__(self, name, roll_no, marks):
+        self.name = name
+        self.roll_no = roll_no
+        self.marks = marks
+
+    # Method to display student details
+    def display(self):
+        print("\n--- Student Details ---")
+        print("Name      :", self.name)
+        print("Roll No.  :", self.roll_no)
+        print("Marks     :", self.marks)
+
+# Creating multiple student objects
+s1 = Student("Krishna", 101, 88.5)
+s2 = Student("Priya", 102, 91.0)
+s3 = Student("Ankit", 103, 76.5)
+
+# Calling display method for each object
+s1.display()
+s2.display()
+s3.display()

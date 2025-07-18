@@ -1,0 +1,51 @@
+# Class and Object with Input, Grade Calculation, and List of Objects
+
+class Student:
+    # Constructor
+    def __init__(self, name, roll_no, marks):
+        self.name = name
+        self.roll_no = roll_no
+        self.marks = marks
+
+    # Method to calculate grade
+    def calculate_grade(self):
+        if self.marks >= 90:
+            return "A"
+        elif self.marks >= 75:
+            return "B"
+        elif self.marks >= 60:
+            return "C"
+        elif self.marks >= 40:
+            return "D"
+        else:
+            return "F"
+
+    # Method to display student details
+    def display(self):
+        print("\n--- Student Details ---")
+        print("Name      :", self.name)
+        print("Roll No.  :", self.roll_no)
+        print("Marks     :", self.marks)
+        print("Grade     :", self.calculate_grade())
+
+
+# Main Program
+students = []
+
+n = int(input("Enter the number of students: "))
+
+for i in range(n):
+    print(f"\nEnter details for student {i + 1}:")
+    name = input("Enter name: ")
+    roll_no = int(input("Enter roll number: "))
+    marks = float(input("Enter marks: "))
+    
+    # Create and store object
+    student = Student(name, roll_no, marks)
+    students.append(student)
+
+# Display all student details
+for stu in students:
+    stu.display()
+
+
