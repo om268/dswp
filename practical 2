@@ -1,0 +1,444 @@
+#simple inheritance 
+# Parent class
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+# Child class (inherits from Animal)
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+# Create object of Dog
+dog = Dog()
+dog.speak()  # Inherited method
+dog.bark()   # Child class method
+
+
+#multiple inheritance 
+# Parent class 1
+class Father:
+    def gardening(self):
+        print("Father loves gardening")
+
+# Parent class 2
+class Mother:
+    def cooking(self):
+        print("Mother loves cooking")
+
+# Child class inherits from both Father and Mother
+class Child(Father, Mother):
+    def playing(self):
+        print("Child loves playing")
+
+# Create object of Child
+child = Child()
+child.gardening()  # From Father
+child.cooking()    # From Mother
+child.playing()    # Own method
+
+
+#simple inheritance 
+class Parent:
+    # parent class body
+
+class Child(Parent):
+    # child class body
+
+#code
+# Parent class
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+# Child class (inherits from Animal)
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+# Create object of Dog
+dog = Dog()
+dog.speak()  # Inherited method
+dog.bark()   # Child class method
+
+
+#multiple inheritance 
+class Parent1:
+    # code
+
+class Parent2:
+    # code
+
+class Child(Parent1, Parent2):
+    # code
+
+#code
+# Parent class 1
+class Father:
+    def gardening(self):
+        print("Father loves gardening")
+
+# Parent class 2
+class Mother:
+    def cooking(self):
+        print("Mother loves cooking")
+
+# Child class inherits from both Father and Mother
+class Child(Father, Mother):
+    def playing(self):
+        print("Child loves playing")
+
+# Create object of Child
+child = Child()
+child.gardening()  # From Father
+child.cooking()    # From Mother
+child.playing()    # Own method
+
+
+
+#Simple Inheritance Example (Student → Person)
+
+# Base class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_details(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+# Derived class
+class Student(Person):
+    def __init__(self, name, age, roll_no, course):
+        super().__init__(name, age)
+        self.roll_no = roll_no
+        self.course = course
+
+    def show_student_info(self):
+        self.show_details()
+        print(f"Roll No: {self.roll_no}")
+        print(f"Course: {self.course}")
+
+# Object creation
+s1 = Student("Rahul", 20, "23CS101", "Computer Science")
+s1.show_student_info()
+
+
+output 
+
+
+Name: Rahul
+Age: 20
+Roll No: 23CS101
+Course: Computer Science
+
+
+#Multiple Inheritance Example (Teacher inherits from Person and Subject
+
+# Parent class 1
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_personal_info(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+# Parent class 2
+class Subject:
+    def __init__(self, subject_name):
+        self.subject_name = subject_name
+
+    def show_subject_info(self):
+        print(f"Subject: {self.subject_name}")
+
+# Child class using multiple inheritance
+class Teacher(Person, Subject):
+    def __init__(self, name, age, subject_name, teacher_id):
+        Person.__init__(self, name, age)
+        Subject.__init__(self, subject_name)
+        self.teacher_id = teacher_id
+
+    def show_teacher_info(self):
+        self.show_personal_info()
+        self.show_subject_info()
+        print(f"Teacher ID: {self.teacher_id}")
+
+# Object creation
+t1 = Teacher("Priya", 35, "Mathematics", "T202")
+t1.show_teacher_info()
+
+🖨️ Output:
+
+Name: Priya
+Age: 35
+Subject: Mathematics
+Teacher ID: T202
+
+
+
+concept 
+
+super() to access the parent constructor (in simple inheritance)
+
+Manual calls like Person.__init__() and Subject.__init__() in multiple inheritance
+
+self used to access attributes and methods
+
+
+What is Inheritance?
+
+Inheritance is one of the key features of Object-Oriented Programming (OOP).
+It allows a child class to acquire the properties and methods of a parent class.
+This promotes code reusability and helps in building hierarchical class structures
+
+🔸 Definition:
+
+Simple Inheritance means one child class inherits from one parent class.
+
+
+Multiple Inheritance means a child class inherits from two or more parent classes.
+
+
+Benefits of Inheritance:
+
+Promotes code reusability
+
+Supports hierarchical classification
+
+Allows extending functionality of existing classes
+
+
+_------------------------------------------------------
+
+Class and Object
+
+🔸 Class is a blueprint or template for creating objects.
+
+🔸 Object is an instance of a class.
+
+
+✅ Understand how to define a class and create objects.
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+s1 = Student("Rahul")  # Object of class
+
+
+---
+
+2️⃣ Constructor (__init__ Method)
+
+Called automatically when an object is created.
+
+Used to initialize data members.
+
+
+class Car:
+    def __init__(self, brand):
+        self.brand = brand
+
+
+---
+
+3️⃣ self Keyword
+
+Refers to the current object.
+
+Used to access variables and methods inside the class.
+
+
+class Demo:
+    def show(self):
+        print("Using self to access this method")
+
+
+---
+
+4️⃣ Instance Variables & Methods
+
+Variables and methods that belong to each object.
+
+
+class Laptop:
+    def __init__(self, model):
+        self.model = model
+
+    def display(self):
+        print("Model:", self.model)
+
+
+---
+
+5️⃣ Access Modifiers (Public, Private, Protected) (optional but useful)
+
+Learn how to make variables private or protected.
+
+
+self._protected = 10     # Protected
+self.__private = 20      # Private
+
+
+---
+
+6️⃣ Encapsulation 🛡️
+
+Binding data and functions together inside a class.
+
+Hides internal details and protects data.
+
+
+class BankAccount:
+    def __init__(self):
+        self.__balance = 0  # private variable
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+
+---
+
+Once you’re comfortable with the above, you're ready to learn inheritance 🎓
+It’s the next step in mastering OOP concepts like:
+
+✅ Inheritance
+
+✅ Polymorphism
+
+✅ Abstraction
+
+@@@@@@@@@@‹@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Multilevel Inheritance
+
+> A class inherits from a class that is itself inherited from another class.
+
+Structure:
+
+Animal → Dog → Puppy
+
+🔸 Code:
+
+class Animal:
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+class Puppy(Dog):
+    def weep(self):
+        print("Puppy weeps")
+
+p = Puppy()
+p.sound()  # From Animal
+p.bark()   # From Dog
+p.weep()   # From Puppy
+
+🖨️ Output:
+
+Animal makes sound
+Dog barks
+Puppy weeps
+
+
+---
+
+2️⃣ Hierarchical Inheritance
+
+> Multiple child classes inherit from the same parent class.
+
+
+
+📊 Structure:
+
+Person
+        /    \
+    Student  Teacher
+
+🔸 Code:
+
+class Person:
+    def details(self):
+        print("I am a person")
+
+class Student(Person):
+    def study(self):
+        print("I am studying")
+
+class Teacher(Person):
+    def teach(self):
+        print("I am teaching")
+
+s = Student()
+t = Teacher()
+
+s.details()  # From Person
+s.study()    # Own
+
+t.details()  # From Person
+t.teach()    # Own
+
+🖨️ Output:
+
+I am a person
+I am studying
+I am a person
+I am teaching
+
+
+---
+
+3️⃣ Hybrid Inheritance
+
+> Combination of more than one type of inheritance (like multiple + multilevel).
+
+
+
+📊 Structure:
+
+Person
+       /      \
+   Student   Teacher
+       \      /
+      Assistant
+
+🔸 Code:
+
+class Person:
+    def info(self):
+        print("I am a person")
+
+class Student(Person):
+    def learn(self):
+        print("I am learning")
+
+class Teacher(Person):
+    def teach(self):
+        print("I am teaching")
+
+class Assistant(Student, Teacher):
+    def assist(self):
+        print("I assist both")
+
+a = Assistant()
+a.info()    # From Person
+a.learn()   # From Student
+a.teach()   # From Teacher
+a.assist()  # Own method
+
+🖨️ Output:
+
+I am a person
+I am learning
+I am teaching
+I assist both
+
+> ✅ Python uses Method Resolution Order (MRO) to resolve conflicts in hybrid inheritance.
+
+
