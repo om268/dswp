@@ -1,0 +1,115 @@
+# Singly Linked List in Python
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    # Insert at beginning
+    def insert_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    # Insert at end
+    def insert_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
+
+    # Insert after a given value
+    def insert_after(self, prev_value, data):
+        temp = self.head
+        while temp:
+            if temp.data == prev_value:
+                new_node = Node(data)
+                new_node.next = temp.next
+                temp.next = new_node
+                return
+            temp = temp.next
+        print(f"Value {prev_value} not found in the list")
+
+    # Delete a node by value
+    def delete_value(self, value):
+        temp = self.head
+        if temp and temp.data == value:
+            self.head = temp.next
+            return
+        prev = None
+        while temp:
+            if temp.data == value:
+                prev.next = temp.next
+                return
+            prev = temp
+            temp = temp.next
+        print(f"Value {value} not found in the list")
+
+    # Search for a value
+    def search(self, key):
+        index = 0
+        temp = self.head
+        while temp:
+            if temp.data == key:
+                return index
+            temp = temp.next
+            index += 1
+        return -1
+
+    # Traverse and print linked list
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+
+# -------------------------------
+# Example Usage with Operations
+# -------------------------------
+if __name__ == "__main__":
+    ll = LinkedList()
+
+    # Creating initial linked list with some data
+    ll.insert_end(10)
+    ll.insert_end(20)
+    ll.insert_end(40)
+    print("Initial Linked List:")
+    ll.display()
+
+    # Insert at beginning
+    ll.insert_beginning(5)
+    print("\nAfter inserting 5 at beginning:")
+    ll.display()
+
+    # Insert at end
+    ll.insert_end(60)
+    print("\nAfter inserting 60 at end:")
+    ll.display()
+
+    # Insert after specific value
+    ll.insert_after(20, 30)
+    print("\nAfter inserting 30 after 20:")
+    ll.display()
+
+    # Delete a value
+    ll.delete_value(10)
+    print("\nAfter deleting 10:")
+    ll.display()
+
+    # Search for a value
+    search_key = 40
+    result = ll.search(search_key)
+    if result != -1:
+        print(f"\nValue {search_key} found at index {result}")
+    else:
+        print(f"\nValue {search_key} not found")
