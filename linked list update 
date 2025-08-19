@@ -1,0 +1,39 @@
+# Working with Python List (Dynamic Array)
+
+# Create an empty list
+arr = []
+
+# Append elements (like insert at end)
+arr.append(10)
+arr.append(20)
+arr.append(30)
+print("After append:", arr)
+
+# Insert element at specific index
+arr.insert(1, 15)   # Insert 15 at index 1
+print("After insert at index 1:", arr)
+
+# Remove element by value
+arr.remove(20)
+print("After remove 20:", arr)
+
+# Pop element by index (default: last element)
+removed = arr.pop(2)   # remove element at index 2
+print(f"After pop index 2 (removed {removed}):", arr)
+
+# Search for an element (index of first occurrence)
+pos = arr.index(15)
+print("Index of 15:", pos)
+
+# Count occurrences
+arr.append(15)
+print("After adding 15 again:", arr)
+print("Count of 15:", arr.count(15))
+
+# Sort the list
+arr.sort()
+print("After sort:", arr)
+
+# Reverse the list
+arr.reverse()
+print("After reverse:", arr)
