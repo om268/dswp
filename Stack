@@ -1,0 +1,55 @@
+1. Stack (LIFO – Last In, First Out)
+Operations:
+
+Push → add element to top
+Pop → remove element from top
+Peek → view top element
+Display → show stack
+
+class Stack:
+    def __init__(self, size):
+        self.stack = [None] * size   # fixed size list
+        self.top = -1
+        self.size = size
+
+    def push(self, item):
+        if self.top == self.size - 1:
+            print("Stack Overflow!")
+        else:
+            self.top += 1
+            self.stack[self.top] = item
+
+    def pop(self):
+        if self.top == -1:
+            print("Stack Underflow!")
+        else:
+            item = self.stack[self.top]
+            self.stack[self.top] = None
+            self.top -= 1
+            return item
+
+    def peek(self):
+        if self.top == -1:
+            print("Stack is Empty!")
+        else:
+            return self.stack[self.top]
+
+    def display(self):
+        if self.top == -1:
+            print("Stack is Empty!")
+        else:
+            print("Stack elements:", end=" ")
+            for i in range(self.top, -1, -1):
+                print(self.stack[i], end=" ")
+            print()
+
+
+# 🔹 Example usage
+s = Stack(5)
+s.push(10)
+s.push(20)
+s.push(30)
+s.display()
+print("Peek:", s.peek())
+print("Popped:", s.pop())
+s.display()
