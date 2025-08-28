@@ -1,0 +1,59 @@
+Queue (FIFO – First In, First Out)
+Operations:
+
+Enqueue → insert element at rear
+Dequeue → remove element from front
+Peek → view front element
+Display → show queue
+
+class Queue:
+    def __init__(self, size):
+        self.queue = [None] * size   # fixed size list
+        self.front = 0
+        self.rear = -1
+        self.size = size
+        self.count = 0   # track number of elements
+
+    def enqueue(self, item):
+        if self.count == self.size:
+            print("Queue Overflow!")
+        else:
+            self.rear = (self.rear + 1) % self.size
+            self.queue[self.rear] = item
+            self.count += 1
+
+    def dequeue(self):
+        if self.count == 0:
+            print("Queue Underflow!")
+        else:
+            item = self.queue[self.front]
+            self.queue[self.front] = None
+            self.front = (self.front + 1) % self.size
+            self.count -= 1
+            return item
+
+    def peek(self):
+        if self.count == 0:
+            print("Queue is Empty!")
+        else:
+            return self.queue[self.front]
+
+    def display(self):
+        if self.count == 0:
+            print("Queue is Empty!")
+        else:
+            print("Queue elements:", end=" ")
+            for i in range(self.count):
+                print(self.queue[(self.front + i) % self.size], end=" ")
+            print()
+
+
+# 🔹 Example usage
+q = Queue(5)
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+q.display()
+print("Peek:", q.peek())
+print("Dequeued:", q.dequeue())
+q.display()
